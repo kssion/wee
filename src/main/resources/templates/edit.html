@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link rel="stylesheet" th:href="@{/apps.css}" href="/static/apps.css">
+</head>
+<body>
+<header th:include="header :: header(${app.name})"></header>
+<section edit>
+    <div style="width: 1024px;margin: 0 auto;">
+        <form action="/apps/app" method="post">
+            <input type="hidden" name="_method" value="PUT">
+            <input type="hidden" name="sid" th:value="${app.sid}">
+            <label>Name: </label>
+            <input name="name" type="text" th:value="${app.name}" title="服务名称">
+            <br>
+            <label>Path: </label>
+            <input name="path" type="text" th:value="${app.path}" title="部署路径">
+            <br>
+            <label>Type: </label>
+            <select name="type" title="选择仓库类型">
+                <option value="0">git</option>
+            </select>
+            <br>
+            <label>Repertory: </label>
+            <input name="repertory" th:value="${app.repertory}" type="text" title="仓库地址">
+            <br>
+            <input type="button" value="取消" onclick="history.back()">
+            <input type="submit" value="保存">
+        </form>
+    </div>
+</section>
+<footer th:include="header::footer"></footer>
+</body>
+</html>

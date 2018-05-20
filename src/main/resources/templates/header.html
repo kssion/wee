@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<header th:fragment="header(title)">
+    <div class="view">
+        <div class="user">
+            <div class="user-name">Kssion</div>
+            <ul class="user-menu">
+                <li>设置</li>
+                <li>退出</li>
+            </ul>
+        </div>
+        <div class="nav">
+            <a class="logo" href="/apps/"></a>
+            <i class="icon-angle-right"></i>
+            <a href="/apps/">我的应用</a>
+            <i class="icon-angle-right"></i>
+            <a th:text="${title}">Title</a>
+        </div>
+    </div>
+</header>
+<footer th:fragment="footer">
+    <div class="content">
+        ©2018 wee
+    </div>
+</footer>
+</html>

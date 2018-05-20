@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+    <link rel="stylesheet" th:href="@{/apps.css}" href="/static/apps.css">
+    <script src="https://cdn.bootcss.com/angular.js/1.6.10/angular.min.js"></script>
+</head>
+<body>
+<header th:include="header :: header('添加')"></header>
+<section add>
+    <div style="width: 1024px;margin: 0 auto;">
+        <form action="/apps/app" method="post">
+            <input type="hidden" name="_method" value="POST">
+            <label>Name: </label>
+            <input name="name" type="text" th:value="${app.name}" title="服务名称">
+            <br>
+            <label>Path: </label>
+            <input name="path" type="text" th:value="${app.path}" title="部署路径">
+            <br>
+            <label>Type: </label>
+            <select name="type" title="选择仓库类型">
+                <option value="0">git</option>
+            </select>
+            <br>
+            <label>Repertory: </label>
+            <input name="repertory" th:value="${app.repertory}" type="text" title="仓库地址">
+            <br>
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</section>
+<footer th:include="header::footer"></footer>
+</body>
+</html>

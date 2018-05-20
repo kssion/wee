@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>Apps</title>
+    <link rel="stylesheet" th:href="@{/apps.css}" href="../static/apps.css">
+</head>
+<body>
+<header>
+    <div class="view">
+        <div class="user">
+            <div class="user-name">Kssion</div>
+            <ul class="user-menu">
+                <li>设置</li>
+                <li>退出</li>
+            </ul>
+        </div>
+        <div class="nav">
+            <a class="logo" href="/apps/"></a>
+            <i class="icon-angle-right"></i>
+            <a href="/apps/">我的应用</a>
+        </div>
+    </div>
+</header>
+<section>
+    <div class="main">
+        <div class="apps">
+            <div class="wrapper">
+                <div class="transition">
+                    <div class="add app">
+                        <div class="add-item">+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper" th:each="app:${apps}">
+                <div class="transition">
+                    <div class="app" th:object="${app}">
+                        <div>Name: <label class="value" th:text="*{name}"></label></div>
+                        <div>Path: <label class="value" th:text="*{path}"></label></div>
+                        <div>Type: <label class="value" th:text="*{getTypeName()}"></label></div>
+                        <div class="button-group">
+                            <a href="" class="edit">编辑</a>
+                            <a href="" class="build">构建</a>
+                            <a href="" class="deploy">部署</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="content">
+        ©2018 wee
+    </div>
+</footer>
+</body>
+</html>
